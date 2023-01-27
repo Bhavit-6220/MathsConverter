@@ -1,6 +1,12 @@
 function getValue() {
     var Value = prompt("Enter the expression");
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 50; i++) {
+        if(Value.includes("^0")){
+            Value = Value.replace("^0", "⁰")
+        }
+        if(Value.includes("^1")){
+            Value = Value.replace("^1", "¹")
+        }
         if(Value.includes("^2")){
             Value = Value.replace("^2", "²")
         }
@@ -25,9 +31,32 @@ function getValue() {
         if(Value.includes("^9")){
             Value = Value.replace("^9", "⁹")
         }
+        if(Value.includes('sqrt')){
+            Value = Value.replace("sqrt", "√")
+        }
+        if(Value.includes("curt")){
+            Value = Value.replace("curt", "∛")
+        }
+        if(Value.includes("theta")){
+            Value = Value.replace("theta", "θ")
+        }
+        if(Value.includes("x")){
+            Value = Value.replace("x", "𝑥")
+        }
+        if(Value.includes("+-")){
+            Value = Value.replace("+-", "±")
+        }
     }
-    
 
-    var Div = "The maths conversion is: " + Value;
+    var Div = Value;
     document.getElementById('div1').innerHTML = Div;
 }
+
+const btn_copy = document.getElementById('copy')
+const txt_data = document.getElementById('div1')
+
+copy.onclick = () => {
+    const value = txt_data.value
+    document.body.appendChild(selBox);
+    document.execCommand('copy');
+  }
